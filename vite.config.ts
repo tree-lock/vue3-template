@@ -1,6 +1,6 @@
 import { defineConfig, Plugin } from 'vite';
 import vue from '@vitejs/plugin-vue';
-import path from 'path';
+import { resolve, join } from 'path/posix';
 import visualizer from 'rollup-plugin-visualizer';
 import AutoImport from 'unplugin-auto-import/vite';
 import Components from 'unplugin-vue-components/vite';
@@ -24,7 +24,7 @@ export default defineConfig({
     vue(),
     ...visualize,
     createSvgIconsPlugin({
-      iconDirs: [path.resolve(process.cwd(), 'public/svg')],
+      iconDirs: [resolve(process.cwd(), 'public/svg')],
       symbolId: 'icon-[dir]-[name]',
     }),
     // 全局自动引入了 Element-Plus 的组件
@@ -54,7 +54,7 @@ export default defineConfig({
   ],
   resolve: {
     alias: {
-      '@': path.resolve(path.join(__dirname, 'src')),
+      '@': resolve(join(__dirname, 'src')),
     },
   },
   server: {},

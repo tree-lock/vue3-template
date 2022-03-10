@@ -1,6 +1,6 @@
 import { defineConfig, Plugin } from 'vite';
 import vue from '@vitejs/plugin-vue';
-import { resolve, join } from 'path/posix';
+import { resolve, join } from 'path';
 import visualizer from 'rollup-plugin-visualizer';
 import AutoImport from 'unplugin-auto-import/vite';
 import Components from 'unplugin-vue-components/vite';
@@ -43,7 +43,7 @@ export default defineConfig({
     }),
     Components({
       resolvers: [ElementPlusResolver()],
-      dirs: ['src/components/global'],
+      dirs: ['src/components'],
       extensions: ['vue', 'ts'],
       deep: false,
       dts: 'src/components.d.ts',

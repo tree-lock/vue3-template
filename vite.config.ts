@@ -34,7 +34,7 @@ export default defineConfig({
         'vue-router',
         {
           '@/api/index': [['default', 'api']],
-          '@/store/index.vue': [['default', 'store']],
+          '@/store/index': [['default', 'store']],
           '@/config/index': [['default', 'config']],
         },
       ],

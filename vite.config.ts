@@ -57,7 +57,15 @@ export default defineConfig({
       '@': resolve(join(__dirname, 'src')),
     },
   },
-  server: {},
+  server: {
+    proxy: {
+      '/bing': {
+        target: 'https://cn.bing.com/',
+        changeOrigin: true,
+        rewrite: (path) => path.replace(/^\/bing/, ''),
+      },
+    },
+  },
   build: {
     minify: 'terser',
     terserOptions: {

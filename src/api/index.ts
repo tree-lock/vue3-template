@@ -1,1 +1,2 @@
-export default {};
+import * as auth from "./auth";
+export default { auth };

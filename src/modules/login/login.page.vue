@@ -33,7 +33,7 @@ div.login-page {
   }
 
   .glass {
-    padding: 16px;
+    padding: 116px 216px;
   }
 
   .frosted-bg {
@@ -50,7 +50,7 @@ div.login-page {
     top: 50%;
     left: 50%;
     z-index: 1;
-    width: 300px;
+    width: 400px;
     height: 300px;
     transform: translate(-50%, -50%);
     transition: 1s;

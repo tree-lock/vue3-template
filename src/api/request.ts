@@ -1,7 +1,12 @@
-import axios from "axios";
+import axios, { AxiosError } from "axios";
+import Cookies from "js-cookie";
 
 const axiosInstance = axios.create({
+  baseURL: "/api",
   withCredentials: false,
+  headers: {
+    Authorization: `Bearer ${Cookies.get("hhf-token")}`,
+  },
 });
 axiosInstance.interceptors.request.use(
   async (config) => {
@@ -20,16 +25,28 @@ axiosInstance.interceptors.request.use(
     return Promise.reject(err);
   }
 );
-axiosInstance.interceptors.response.use(async (response) => {
-  if (process.env.NODE_ENV === "development") {
-    // 开发模式下，监听axios的返回
-    const consoleString = `%c🛸 [Axios] Received API Response => `;
-    console.log(
-      consoleString,
-      "color: #378362; ",
-      `<${response.config.method?.toLocaleUpperCase()}> ` + response.config.url
-    );
+axiosInstance.interceptors.response.use(
+  async (response) => {
+    if (process.env.NODE_ENV === "development") {
+      // 开发模式下，监听axios的返回
+      const consoleString = `%c🛸 [Axios] Received API Response => `;
+      console.log(
+        consoleString,
+        "color: #378362; ",
+        `<${response.config.method?.toLocaleUpperCase()}> ` +
+          response.config.url
+      );
+    }
+    return response;
+  },
+  (error: AxiosError) => {
+    if (error.response?.status === 401 && error.config.url !== "/auth/login") {
+      location.href = "/login";
+    } else {
+      ElMessage(error.response?.data.message);
+    }
+    throw error.response;
   }
-});
+);
 
 export default axiosInstance;

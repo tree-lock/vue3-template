@@ -1,0 +1,126 @@
+<template>
+  <div class="home-page">
+    <div class="content">
+      <div class="hello">
+        {{ helloWord() }}，<span>{{ role }} {{ profile?.name }}</span>
+      </div>
+      <div class="date">{{ date }}</div>
+      <div class="menu">
+        <div class="profile">📋个人信息</div>
+        <div class="company">🏢公司管理</div>
+        <div class="summary">📊使用统计</div>
+        <div class="log">💼日志系统</div>
+      </div>
+      <div
+        class="recommend"
+        v-loading="recommended === 'Loading'"
+        v-if="recommended"
+      >
+        {{ recommended }}
+      </div>
+    </div>
+    <div class="version">
+      版本: v{{ version }} <a href="https://gitee.com/dXmo">Authored by Xmo</a>
+    </div>
+  </div>
+</template>
+
+<script lang="ts" setup>
+const recommended = ref<string>("Loading");
+const profile = $.profile.default;
+const helloWord = () => {
+  const hour = new Date().getHours();
+  if (hour >= 6 && hour < 11) {
+    return "早上好";
+  } else if (hour >= 11 && hour < 14) {
+    return "中午好";
+  } else if (hour >= 14 && hour < 19) {
+    return "下午好";
+  } else {
+    return "晚上好";
+  }
+};
+const version = config.version;
+const date = ref<string>();
+const initDate = () => {
+  const d = new Date();
+  d.setHours(d.getHours() + 8);
+  const [day, second] = d.toISOString().split(/T|Z|\./);
+  date.value = day + " " + second.slice(0, -3);
+  setTimeout(() => {
+    setInterval(() => {
+      const d = new Date();
+      d.setHours(d.getHours() + 8);
+      const [day, second] = d.toISOString().split(/T|Z|\./);
+      date.value = day + " " + second.slice(0, -3);
+    }, 60);
+  }, 60 - new Date().getSeconds());
+};
+initDate();
+const role = computed(() => {
+  if (profile.value?.role) {
+    return { admin: "管理员", manager: "经理" }[profile.value?.role];
+  }
+  return "";
+});
+// 通过公共API每日诗词获取
+jinrishici.load((result) => {
+  let str = result.data.content.slice(0, -1);
+  recommended.value = str;
+});
+const borderColor = config.color.$borderColor;
+const asideColor = config.color.$asideBgColor;
+const levelColor = config.color.$level1Color;
+const activeTextColor = config.color.$activeTextColor;
+const ignoreColor = config.color.$ignoreColor;
+</script>
+
+<style lang="scss" scoped>
+div.home-page {
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  .content {
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    gap: 16px;
+    justify-content: center;
+    align-items: center;
+    > div.hello {
+      font-size: 28px;
+      > span {
+        color: v-bind(levelColor);
+      }
+    }
+    > div.date {
+      color: v-bind(activeTextColor);
+    }
+    > div.menu {
+      display: flex;
+      gap: 16px;
+      > * {
+        height: 128px;
+        width: 128px;
+        background: v-bind(asideColor);
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        border: 2px v-bind(borderColor) solid;
+        border-radius: 50%;
+      }
+    }
+    > div.recommend {
+      color: v-bind(ignoreColor);
+    }
+  }
+  .version {
+    display: flex;
+    justify-content: center;
+    font-size: 12px;
+    > a {
+      margin-left: 8px;
+    }
+  }
+}
+</style>

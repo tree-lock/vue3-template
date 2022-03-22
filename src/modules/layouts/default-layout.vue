@@ -3,7 +3,7 @@
     <el-container class="outer-container">
       <el-header><Header /></el-header>
       <el-container>
-        <el-aside width="200px">
+        <el-aside :width="asideWidth">
           <Menu />
         </el-aside>
         <el-main
@@ -23,11 +23,12 @@
 import { RouterView } from "vue-router";
 import Menu from "./layout-menu.vue";
 import Header from "./layout-header.vue";
-const headerBgColor = config.style.color.$headerBgColor;
-const asideBgColor = config.style.color.$asideBgColor;
-const mainBgColor = config.style.color.$mainBgColor;
-const textColor = config.style.color.$textColor;
-const borderColor = config.style.color.$borderColor;
+const asideWidth = $.collapse.asideWidth;
+const headerBgColor = config.color.$headerBgColor;
+const asideBgColor = config.color.$asideBgColor;
+const mainBgColor = config.color.$mainBgColor;
+const textColor = config.color.$textColor;
+const borderColor = config.color.$borderColor;
 </script>
 
 <style lang="scss" scoped>
@@ -42,8 +43,11 @@ div.layout {
       border-bottom: 1px v-bind(borderColor) solid;
     }
     > .el-container {
+      // 将父容器设置为overflow: auto，让.outer-container, .el-container 和 .el-main 都成为 BFC ，使得 el-main 的 overflow: auto 生效
+      overflow: auto;
       > .el-aside {
         background-color: v-bind(asideBgColor);
+        transition: 1s;
       }
       > .el-main {
         background-color: v-bind(mainBgColor);

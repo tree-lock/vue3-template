@@ -10,6 +10,8 @@ const darkColor = {
   $textColor: "#c9d1d9",
   $activeTextColor: "#ffd04b",
   $borderColor: "#21262d",
+  $level1Color: "#d36230",
+  $ignoreColor: "#70757a",
 };
 // 常规模式下的颜色
 const normalColor = {
@@ -20,6 +22,8 @@ const normalColor = {
   $textColor: "#303133",
   $activeTextColor: "#409eff",
   $borderColor: "#dcdfe6",
+  $level1Color: "#ff6723",
+  $ignoreColor: "#70757a",
 };
 
-export const color = Object.assign(darkMode ? darkColor : normalColor);
+export default darkMode ? darkColor : normalColor;

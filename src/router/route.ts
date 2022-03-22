@@ -6,13 +6,13 @@ const authRoutes: RouteRecordRaw[] = [
   },
   {
     path: "home",
-    component: () => import("@/modules/home/views/home.page.vue"),
+    component: () => import("@/modules/home/home.page.vue"),
   },
 ];
 const routes: RouteRecordRaw[] = [
   {
     path: "/login",
-    component: () => import("@/modules/login/views/login.page.vue"),
+    component: () => import("@/modules/login/login.page.vue"),
   },
   {
     path: "/",

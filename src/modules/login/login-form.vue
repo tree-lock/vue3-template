@@ -1,7 +1,7 @@
 <template>
   <div class="login-form">
     <h1>账号登录</h1>
-    <el-form :rules="rules">
+    <el-form :rules="rules" :model="form">
       <el-form-item prop="username">
         <el-input v-model="form.username" autocomplete="username">
           <template #prepend>
@@ -10,7 +10,11 @@
         </el-input>
       </el-form-item>
       <el-form-item prop="password">
-        <el-input v-model="form.password" autocomplete="password">
+        <el-input
+          v-model="form.password"
+          autocomplete="password"
+          type="password"
+        >
           <template #prepend
             ><el-icon><lock /></el-icon
           ></template>
@@ -21,7 +25,7 @@
           size="large"
           class="login-button"
           type="primary"
-          @click="login"
+          @click="submit"
           >登录</el-button
         >
       </el-form-item>
@@ -31,6 +35,7 @@
 
 <script lang="ts" setup>
 import { Avatar, Lock } from "@element-plus/icons-vue";
+import { AxiosResponse } from "axios";
 import { FormItemRule } from "element-plus/es/components/form/src/form.type";
 const form = reactive({
   username: "",
@@ -40,17 +45,34 @@ const rules: { [k: string]: FormItemRule[] } = reactive({
   username: [{ required: true, trigger: "blur", message: "请输入用户名" }],
   password: [{ required: true, trigger: "blur", message: "请输入密码" }],
 });
-const login = () => {};
+const submit = async () => {
+  try {
+    await $.auth.login(form);
+    location.href = "/";
+  } catch (err) {
+    const axiosError = err as AxiosResponse;
+    if (axiosError.status === 401) {
+      ElNotification.warning("用户名或密码错误");
+    }
+  }
+};
 </script>
 
 <style lang="scss" scoped>
 div.login-form {
+  > h1 {
+    font-size: 1.65rem;
+    color: #333333;
+    margin-bottom: 2rem;
+  }
   text-align: center;
   height: 100%;
   box-sizing: border-box;
   padding: 24px;
   transition: 1s;
-  background-color: rgba(255, 255, 255, 1);
+  background-color: #ffffff;
+  border: #00000085 3px solid;
+  border-radius: 5px;
   &:hover {
     background-color: rgba(255, 255, 255, 0.9);
   }

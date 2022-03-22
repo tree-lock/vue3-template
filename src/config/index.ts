@@ -1,4 +1,5 @@
-import * as style from "./style";
+import color from "./color";
 export default {
-  style,
+  color,
+  version: "1.0.0",
 };

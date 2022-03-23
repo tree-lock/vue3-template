@@ -6,10 +6,9 @@
       </div>
       <div class="date">{{ date }}</div>
       <div class="menu">
-        <div class="profile">📋个人信息</div>
-        <div class="company">🏢公司管理</div>
-        <div class="summary">📊使用统计</div>
-        <div class="log">💼日志系统</div>
+        <div v-for="item in menu" @click="goMenuItem(item.name)">
+          {{ item.str }}
+        </div>
       </div>
       <div
         class="recommend"
@@ -40,6 +39,7 @@ const helloWord = () => {
     return "晚上好";
   }
 };
+
 const version = config.version;
 const date = ref<string>();
 const initDate = () => {
@@ -68,6 +68,18 @@ jinrishici.load((result) => {
   let str = result.data.content.slice(0, -1);
   recommended.value = str;
 });
+// 跳转
+const router = useRouter();
+const goMenuItem = (name: string) => {
+  router.push({ name });
+};
+const menu: { name: string; str: string }[] = [
+  { name: "Profile", str: "📋个人信息" },
+  { name: "CompanyManagement", str: "🏢公司管理" },
+  { name: "Statistic", str: "📊使用统计" },
+  { name: "Log", str: "💼日志系统" },
+];
+
 const borderColor = config.color.$borderColor;
 const asideColor = config.color.$asideBgColor;
 const levelColor = config.color.$level1Color;
@@ -108,6 +120,7 @@ div.home-page {
         align-items: center;
         border: 2px v-bind(borderColor) solid;
         border-radius: 50%;
+        cursor: pointer;
       }
     }
     > div.recommend {

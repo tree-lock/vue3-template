@@ -2,23 +2,24 @@
   <el-menu
     :active-text-color="activeTextColor"
     :background-color="menuBgColor"
-    default-active="2"
+    :default-active="defaultActive"
+    router
     :collapse="isCollapse"
     :text-color="textColor"
   >
-    <el-menu-item index="2">
+    <el-menu-item index="/home">
       <el-icon><home-filled /></el-icon>
       <span>首页</span>
     </el-menu-item>
-    <el-menu-item index="3">
+    <el-menu-item index="/company-management">
       <el-icon><briefcase /></el-icon>
       <span>公司管理</span>
     </el-menu-item>
-    <el-menu-item index="4">
+    <el-menu-item index="/statistic">
       <el-icon><pie-chart /></el-icon>
       <span>使用统计</span>
     </el-menu-item>
-    <el-menu-item index="5">
+    <el-menu-item index="/log">
       <el-icon><monitor /></el-icon>
       <span>日志系统</span>
     </el-menu-item>
@@ -42,6 +43,8 @@ import {
 
 const isCollapse = $.collapse.isCollapse;
 const changeCollapse = $.collapse.changeCollapse;
+const route = useRoute();
+const defaultActive = computed(() => route.matched[1].path);
 
 const menuBgColor = config.color.$asideBgColor;
 const textColor = config.color.$textColor;

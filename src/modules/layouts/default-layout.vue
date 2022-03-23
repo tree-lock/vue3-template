@@ -8,7 +8,7 @@
         </el-aside>
         <el-main
           ><router-view v-slot="{ Component }">
-            <transition>
+            <transition name="component-scale" mode="out-in">
               <keep-alive>
                 <component :is="Component" />
               </keep-alive>
@@ -51,6 +51,7 @@ div.layout {
       }
       > .el-main {
         background-color: v-bind(mainBgColor);
+        min-width: 700px;
       }
     }
   }

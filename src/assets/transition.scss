@@ -1,0 +1,39 @@
+/** 动画效果 **/
+.component-right-in-enter-active,
+.component-right-in-leave-active {
+  transition: all 0.25s ease;
+}
+
+.component-right-in-enter-from,
+.component-right-in-leave-to {
+  opacity: 0;
+  transform: translateX(10px);
+}
+.component-scale-enter-active,
+.component-scale-leave-active {
+  transition: opacity 0.3s ease;
+  transition: transform 0.5s;
+}
+
+.component-scale-enter-from,
+.component-scale-leave-to {
+  opacity: 0.1;
+  transform: scale(0.98);
+}
+
+.component-up-in-enter-active,
+.component-up-in-leave-active {
+  transition: all 0.3s ease;
+}
+
+.component-up-in-enter--to,
+.component-up-in-leave-from {
+  overflow: hidden;
+  height: 100%;
+}
+
+.component-up-in-enter-from,
+.component-up-in-leave-to {
+  overflow: hidden;
+  height: 0px;
+}

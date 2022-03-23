@@ -2,7 +2,7 @@
   <div class="layout-header">
     <div>{{ icon }}HHF后台管理系统</div>
     <div class="right">
-      <div class="user-info">
+      <div class="user-info" @click="goProfile">
         <span>{{ name }}</span>
         🪶
       </div>
@@ -25,6 +25,13 @@ onBeforeMount(getProfile);
 // 调整页面配色
 const mode = $.dark.mode;
 const changeMode = $.dark.changeMode;
+
+const router = useRouter();
+const goProfile = () => {
+  router.push({
+    name: "Profile",
+  });
+};
 </script>
 
 <style lang="scss" scoped>
@@ -40,6 +47,7 @@ div.layout-header {
     gap: 16px;
     > div.user-info {
       display: flex;
+      cursor: pointer;
       align-items: center;
       font-size: 2rem;
       > span {

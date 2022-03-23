@@ -85,6 +85,7 @@ const asideColor = config.color.$asideBgColor;
 const levelColor = config.color.$level1Color;
 const activeTextColor = config.color.$activeTextColor;
 const ignoreColor = config.color.$ignoreColor;
+const hoverBgColor = config.color.$hoverBgColor;
 </script>
 
 <style lang="scss" scoped>
@@ -121,6 +122,10 @@ div.home-page {
         border: 2px v-bind(borderColor) solid;
         border-radius: 50%;
         cursor: pointer;
+        transition: 0.3s;
+        &:hover {
+          background: v-bind(hoverBgColor);
+        }
       }
     }
     > div.recommend {

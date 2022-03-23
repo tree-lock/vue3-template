@@ -1,7 +1,9 @@
 <template>
-  <div class="profile-page">个人信息页</div>
+  <div class="profile-page">{{ profile }}</div>
 </template>
 
-<script lang="ts" setup></script>
+<script lang="ts" setup>
+const profile = $.profile.default;
+</script>
 
 <style lang="scss" scoped></style>

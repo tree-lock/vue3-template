@@ -1,6 +1,6 @@
 <template>
   <div class="layout-header">
-    <div>{{ icon }}HHF后台管理系统</div>
+    <div>{{ icon }}HHF后台产品管理系统</div>
     <div class="right">
       <div class="user-info" @click="goProfile">
         <span>{{ name }}</span>

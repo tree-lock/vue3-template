@@ -19,7 +19,8 @@
       </div>
     </div>
     <div class="version">
-      版本: v{{ version }} <a href="https://gitee.com/dXmo">Authored by Xmo</a>
+      版本: v{{ version }}
+      <a href="https://gitee.com/dXmo" target="_blank">Authored by Xmo</a>
     </div>
   </div>
 </template>

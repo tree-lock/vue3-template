@@ -47,6 +47,10 @@
 
 ## HELP
 
+### Api 请求模拟
+
+可以在 `src/index.ts` 中开启或关闭 `mock` 模拟 `XHR` / `Axios` 请求;
+
 ### 项目打开 `ref`/`reactive` 等`vue`/`vue-router`变量爆红 | 生成完整的 `auto-imports.d.ts` 和 `components.d.ts`
 
 1. 先进入项目开发模式 `npm run dev`

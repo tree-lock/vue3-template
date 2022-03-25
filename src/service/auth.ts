@@ -13,6 +13,7 @@ const clearToken = () => {
   Cookies.remove("hhf-token");
   location.href = "/login";
 };
+export const logout = clearToken;
 
 export const getToken = () => {
   return Cookies.get("hhf-token");

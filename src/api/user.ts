@@ -11,6 +11,9 @@ declare global {
         name: string;
         date: string;
         role: "admin" | "manager" | undefined;
+        contact: string;
+        email: null | string;
+        gender: "secret" | "male" | "female" | "other";
       }
     }
   }

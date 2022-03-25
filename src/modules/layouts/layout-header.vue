@@ -6,6 +6,7 @@
         <span>{{ name }}</span>
         🪶
       </div>
+      <el-button @click="logout" type="primary">登出</el-button>
       <el-button @click="changeMode">
         {{ mode ? "常规配色" : "暗黑配色" }}
       </el-button>
@@ -27,6 +28,7 @@ const mode = $.dark.mode;
 const changeMode = $.dark.changeMode;
 
 const router = useRouter();
+const logout = $.auth.logout;
 const goProfile = () => {
   router.push({
     name: "Profile",

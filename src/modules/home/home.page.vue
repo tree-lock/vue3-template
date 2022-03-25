@@ -63,7 +63,8 @@ const role = computed(() => {
   }
   return "";
 });
-// 通过公共API每日诗词获取
+console.dir(jinrishici);
+// 通过公共API随机诗词获取
 jinrishici.load((result) => {
   let str = result.data.content.slice(0, -1);
   recommended.value = str;

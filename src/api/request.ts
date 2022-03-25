@@ -1,7 +1,5 @@
 import axios, { AxiosError } from "axios";
 import Cookies from "js-cookie";
-// 开启mock，如果要关闭mock，则注释下面这行引入
-import "./mock";
 
 const axiosInstance = axios.create({
   baseURL: config.baseUrl,

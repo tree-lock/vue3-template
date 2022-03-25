@@ -25,7 +25,7 @@
 </template>
 
 <script lang="ts" setup>
-const recommended = ref<string>("Loading");
+const recommended = $.poem.default;
 const profile = $.profile.default;
 const helloWord = () => {
   const hour = new Date().getHours();
@@ -63,12 +63,7 @@ const role = computed(() => {
   }
   return "";
 });
-console.dir(jinrishici);
-// 通过公共API随机诗词获取
-jinrishici.load((result) => {
-  let str = result.data.content.slice(0, -1);
-  recommended.value = str;
-});
+
 // 跳转
 const router = useRouter();
 const goMenuItem = (name: string) => {

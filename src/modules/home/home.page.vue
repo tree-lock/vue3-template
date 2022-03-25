@@ -10,11 +10,7 @@
           {{ item.str }}
         </div>
       </div>
-      <div
-        class="recommend"
-        v-loading="recommended === 'Loading'"
-        v-if="recommended"
-      >
+      <div class="recommend" v-loading="recommended === 'Loading'">
         {{ recommended }}
       </div>
     </div>
@@ -44,13 +40,14 @@ const helloWord = () => {
 
 const version = config.version;
 const date = ref<string>();
+let interval: NodeJS.Timer;
 const initDate = () => {
   const d = new Date();
   d.setHours(d.getHours() + 8);
   const [day, second] = d.toISOString().split(/T|Z|\./);
   date.value = day + " " + second.slice(0, -3);
   setTimeout(() => {
-    setInterval(() => {
+    interval = setInterval(() => {
       const d = new Date();
       d.setHours(d.getHours() + 8);
       const [day, second] = d.toISOString().split(/T|Z|\./);
@@ -59,6 +56,11 @@ const initDate = () => {
   }, 60 - new Date().getSeconds());
 };
 initDate();
+onBeforeUnmount(() => {
+  if (interval) {
+    clearInterval(interval);
+  }
+});
 const role = computed(() => {
   if (profile.value?.role) {
     return { admin: "管理员", manager: "经理" }[profile.value?.role];

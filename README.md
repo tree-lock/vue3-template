@@ -48,6 +48,8 @@
 
 - `lint-staged` + `prettier` 在 `git commit` 的时候对代码进行格式化，才用 `prettier` 的默认方案进行。
 
+- `git-cz` - 请使用 `npm run commit` 代替 `git` 命令，详情参照 `package.json` 中的 `scripts.commit`
+
 ## HELP
 
 ### Api 请求模拟

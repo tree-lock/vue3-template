@@ -7,7 +7,7 @@ import Components from "unplugin-vue-components/vite";
 import { ElementPlusResolver } from "unplugin-vue-components/resolvers";
 import { createSvgIconsPlugin } from "vite-plugin-svg-icons";
 import styleImport, { ElementPlusResolve } from "vite-plugin-style-import";
-
+import config from "./src/config/project";
 /** 在非预发布(release)环境下，开启模块可视化打包
  * 1. npm run build 会生成一个html文件
  * 2. 会自动打开这个html文件，显示打包中各个模块所占的空间 */
@@ -83,17 +83,19 @@ export default defineConfig({
   server: {
     // 设置后端代理，以解决跨域问题
     proxy: {
+      // 请求 "/api" 时，转为对 http://localhost:8080/ 发出请求，同时删除 /api 前缀
+      // 所有配置可以在"src/config/project.ts"中进行修改
+      [config.baseUrl]: {
+        target: config.baseUrlPrefix,
+        changeOrigin: true,
+        rewrite: (path) => path.replace(RegExp("^" + config.baseUrl), ""),
+      },
       // 请求 "/bing" 时，转为对 https://cn.bing.com/ 发出请求，同时删除 /bing 前缀
+      // 这一配置是外部不变的，所以不读取配置
       "/bing": {
         target: "https://cn.bing.com/",
         changeOrigin: true,
         rewrite: (path) => path.replace(/^\/bing/, ""),
-      },
-      // 请求 "/api" 时，转为对 http://localhost:8080/ 发出请求，同时删除 /api 前缀
-      "/api": {
-        target: "http://localhost:8080/",
-        changeOrigin: true,
-        rewrite: (path) => path.replace(/^\/api/, ""),
       },
     },
   },

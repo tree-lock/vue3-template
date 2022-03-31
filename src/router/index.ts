@@ -7,4 +7,15 @@ const router = createRouter({
   routes, // `routes: routes` 的缩写
 });
 
+/**
+ * 如果没有找到Token，就返回到登录页
+ */
+router.afterEach((to) => {
+  if (to.name !== "Login") {
+    if (!$.auth.getToken()) {
+      location.href = "/login";
+    }
+  }
+});
+
 export default router;

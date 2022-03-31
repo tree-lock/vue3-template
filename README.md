@@ -60,6 +60,10 @@
 2. 再点击打开网页 `http://localhost:3000`
 3. `vite` 会自动在 `src` 文件夹中生成`auto-imports.d.ts` 和 `components.d.ts`这两个文件
 
+### 为什么不用`store`(`vue-store`或`pinia`)？
+
+`vue3`允许在外部`ts`文件中使用`ref`和`reactive`，可以直接使用`ref`在`ts`中定义全局变量然后再在`vue`或`ts`文件中引用，并保留响应式，不需要画蛇添足添加`pinia`。
+
 ## 开发约束
 
 1. 任意模块文件大小不能超过 500 行，对于大型模块应当拆分成多个小模块以减小复杂度。

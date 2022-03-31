@@ -42,6 +42,7 @@ axiosInstance.interceptors.response.use(
   (error: AxiosError) => {
     if (error.response?.status === 401 && error.config.url !== "/auth/login") {
       // 如果请求不是登录请求并且返回状态码401，则返回登录页面
+      // mock状态下无法返回状态码401
       location.href = "/login";
     } else {
       // 否则弹出请求错误信息

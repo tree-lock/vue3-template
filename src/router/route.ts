@@ -1,4 +1,6 @@
 import { RouteRecordRaw } from "vue-router";
+// 所有鉴权之后才能访问的路由
+// Layout的子路由，通过VueRouter统一全局管理页的布局
 const authRoutes: RouteRecordRaw[] = [
   {
     path: "/",
@@ -31,6 +33,7 @@ const authRoutes: RouteRecordRaw[] = [
     component: () => import("@/modules/log/log.page.vue"),
   },
 ];
+// 所有路由
 const routes: RouteRecordRaw[] = [
   {
     path: "/login",

@@ -1,3 +1,4 @@
+/** 使用mock模拟数据 */
 import Mock, { mock, Random } from "mockjs";
 const mockUrl = config.baseUrl;
 Mock.setup({

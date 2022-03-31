@@ -1,6 +1,5 @@
-import Cookies from "js-cookie";
-
-const darkMode = Cookies.get("darkMode") === "1";
+// 在LocalStorage中记录用户的模式选择，设置模式参见'src/service/dark.ts'
+const darkMode = localStorage.getItem("darkMode") === "1";
 // 暗黑模式下的颜色
 const darkColor = {
   $headerBgColor: "#161b22",
@@ -12,6 +11,7 @@ const darkColor = {
   $borderColor: "#21262d",
   $level1Color: "#d36230",
   $ignoreColor: "#70757a",
+  $clickBgColor: "#343434",
 };
 // 常规模式下的颜色
 const normalColor = {
@@ -24,6 +24,7 @@ const normalColor = {
   $borderColor: "#dcdfe6",
   $level1Color: "#ff6723",
   $ignoreColor: "#70757a",
+  $clickBgColor: "#d9ecff",
 };
 
 export default darkMode ? darkColor : normalColor;

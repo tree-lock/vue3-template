@@ -1,3 +1,9 @@
+/**
+ * 节流
+ * @param fn 节流的对象
+ * @param delay 节流的时长
+ * @returns 包装之后的函数
+ */
 export function throttle(fn: Function, delay: number) {
   let valid = true;
   return function () {

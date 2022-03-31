@@ -1,6 +1,6 @@
 import axios, { AxiosError } from "axios";
 import Cookies from "js-cookie";
-
+// 创建Axios标准实例，由于默认后端采用JWT鉴权，所以设置请求头Authorization，请根据鉴权方式自定义
 const axiosInstance = axios.create({
   baseURL: config.baseUrl,
   withCredentials: false,
@@ -41,8 +41,10 @@ axiosInstance.interceptors.response.use(
   },
   (error: AxiosError) => {
     if (error.response?.status === 401 && error.config.url !== "/auth/login") {
+      // 如果请求不是登录请求并且返回状态码401，则返回登录页面
       location.href = "/login";
     } else {
+      // 否则弹出请求错误信息
       ElMessage(error.response?.data.message);
     }
     throw error.response;

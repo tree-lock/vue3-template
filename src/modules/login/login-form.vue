@@ -3,7 +3,11 @@
     <h1>账号登录</h1>
     <el-form :rules="rules" :model="form">
       <el-form-item prop="username">
-        <el-input v-model="form.username" autocomplete="username">
+        <el-input
+          v-model="form.username"
+          placeholder="用户名(mock状态下请随意输入)"
+          autocomplete="username"
+        >
           <template #prepend>
             <el-icon><avatar /></el-icon>
           </template>
@@ -12,6 +16,7 @@
       <el-form-item prop="password">
         <el-input
           v-model="form.password"
+          placeholder="密码(mock状态下请随意输入)"
           autocomplete="password"
           type="password"
         >
@@ -36,12 +41,11 @@
 <script lang="ts" setup>
 import { Avatar, Lock } from "@element-plus/icons-vue";
 import { AxiosResponse } from "axios";
-import { FormItemRule } from "element-plus/es/components/form/src/form.type";
 const form = reactive({
   username: "",
   password: "",
 });
-const rules: { [k: string]: FormItemRule[] } = reactive({
+const rules = reactive({
   username: [{ required: true, trigger: "blur", message: "请输入用户名" }],
   password: [{ required: true, trigger: "blur", message: "请输入密码" }],
 });

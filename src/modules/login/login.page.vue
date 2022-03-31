@@ -10,6 +10,7 @@
 <script lang="ts" setup>
 import axios from "axios";
 import LoginForm from "./login-form.vue";
+// 请求bing获取每日背景图片
 const imgReq = axios.get(
   "bing/HPImageArchive.aspx?format=js&idx=0&n=1&mkt=zh-CN"
 );

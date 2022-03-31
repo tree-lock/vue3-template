@@ -21,6 +21,7 @@
     <div class="version">
       版本: v{{ version }}
       <a href="https://gitee.com/dXmo" target="_blank">Authored by Xmo</a>
+      <svg-icon name="favicon" size="16px" />
     </div>
   </div>
 </template>
@@ -83,6 +84,7 @@ const levelColor = config.color.$level1Color;
 const activeTextColor = config.color.$activeTextColor;
 const ignoreColor = config.color.$ignoreColor;
 const hoverBgColor = config.color.$hoverBgColor;
+const clickBgColor = config.color.$clickBgColor;
 </script>
 
 <style lang="scss" scoped>
@@ -122,6 +124,9 @@ div.home-page {
         transition: 0.3s;
         &:hover {
           background: v-bind(hoverBgColor);
+        }
+        &:active {
+          background: v-bind(clickBgColor);
         }
       }
     }

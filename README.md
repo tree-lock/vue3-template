@@ -2,6 +2,9 @@
 
 该模板提供了 Vue3+Vite+Typescript 的模块化开发的基础框架，Vue 文件使用`<script setup>`SFCs 语法。
 
+> 请先`npm install`(或任何其它包管理工具)并`npm run dev`以自动生成所有的`ts`声明文件。
+> 第一次加载可能会需要一点时间。
+
 ## 推荐的 IDE
 
 - [VSCode](https://code.visualstudio.com/) + [Volar](https://marketplace.visualstudio.com/items?itemName=johnsoncodehk.volar)

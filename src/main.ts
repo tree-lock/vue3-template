@@ -5,7 +5,6 @@ import "./assets/style.scss";
 import "./assets/transition.scss";
 // 注册svg读取插件 https://github.com/vbenjs/vite-plugin-svg-icons
 import "virtual:svg-icons-register";
-console.log(import.meta.env.BASE_URL);
 
 const app = createApp(App);
 // 挂载VueRouter

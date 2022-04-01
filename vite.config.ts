@@ -1,4 +1,3 @@
-import "dotenv/config";
 import { defineConfig, Plugin } from "vite";
 import vue from "@vitejs/plugin-vue";
 import { resolve, join } from "path";
@@ -8,26 +7,19 @@ import Components from "unplugin-vue-components/vite";
 import { ElementPlusResolver } from "unplugin-vue-components/resolvers";
 import { createSvgIconsPlugin } from "vite-plugin-svg-icons";
 import styleImport, { ElementPlusResolve } from "vite-plugin-style-import";
-/** 在非预发布(release)环境下，开启模块可视化打包
- * 1. npm run build 会生成一个html文件
- * 2. 会自动打开这个html文件，显示打包中各个模块所占的空间 */
-const visualize: Plugin[] =
-  process.env.NODE_ENV !== "release"
-    ? [
-        visualizer({
-          open: true,
-          gzipSize: true,
-        }),
-      ]
-    : [];
 
 // https://vitejs.dev/config/
-export default defineConfig({
+export default defineConfig(({ mode }) => ({
   plugins: [
     // Vite+Vue3
     vue(),
     // 加载可视化打包模块插件
-    ...visualize,
+    mode !== "production"
+      ? visualizer({
+          open: true,
+          gzipSize: true,
+        })
+      : undefined,
     // 加载“原生svg”插件
     // 它会默认读取"public/svg"文件夹中的.svg文件，并为全局添加`icon-文件夹-文件名`的`svg``href`地址，使用详情见`src/components/SvgIcon.vue`
     createSvgIconsPlugin({
@@ -109,5 +101,5 @@ export default defineConfig({
       },
     },
   },
-  base: process.env.NODE_ENV === "template" ? "/vue3-template/" : "/",
-});
+  base: mode === "template" ? "/vue3-template/" : "/",
+}));

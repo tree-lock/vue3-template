@@ -1,1 +1,0 @@
-import{_ as e,o,p as r}from"./index.0cb59846.js";var a=e({},[["render",function(e,a){return o(),r("div",null,"日志系统页")}],["__file","/home/xmo/code/vue3-template/src/modules/log/log.page.vue"]]);export{a as default};

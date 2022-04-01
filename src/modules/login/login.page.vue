@@ -17,7 +17,6 @@ const imgReq = axios
     return "url(" + "https://cn.bing.com" + res.data.images[0].url + ")";
   })
   .catch(() => {
-    console.log("failed");
     return "url(https://w.wallhaven.cc/full/72/wallhaven-72rxqo.jpg)";
   });
 const imgUrl = ref<string>("");

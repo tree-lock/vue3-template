@@ -41,11 +41,15 @@ const helloWord = () => {
 const version = config.version;
 const date = ref<string>();
 let interval: NodeJS.Timer;
+/**
+ * 生成当前时间(精确到分钟)
+ */
 const initDate = () => {
   const d = new Date();
   d.setHours(d.getHours() + 8);
   const [day, second] = d.toISOString().split(/T|Z|\./);
   date.value = day + " " + second.slice(0, -3);
+  /** 到分钟整的时候生成循环计时器，每分钟执行一次 */
   setTimeout(() => {
     interval = setInterval(() => {
       const d = new Date();
@@ -56,6 +60,7 @@ const initDate = () => {
   }, 60 - new Date().getSeconds());
 };
 initDate();
+/** 销毁组件的时候记得销毁计时器 */
 onBeforeUnmount(() => {
   if (interval) {
     clearInterval(interval);

@@ -2,7 +2,7 @@
 
 该模板提供了 Vue3+Vite+Typescript 的模块化开发的基础框架，Vue 文件使用`<script setup>`SFCs 语法。
 
-> 请先`npm install`(或任何其它包管理工具)并`npm run dev`以自动生成所有的`ts`声明文件。
+> 请先`npm install`(或任何其它包管理工具)并`npm run dev`然后打开一次网页(通常是`localhost:3000`)以自动生成所有的`ts`声明文件。
 > 第一次加载可能会需要一点时间。
 
 ## 推荐的 IDE
@@ -25,14 +25,14 @@
   - `unplugin-auto-import` 全局自动隐式 `import` 导出 - 通常用于导入 `vue` `vue-router` 的导出 - 已配置
   - `unplugin-vue-components` 全局自动隐式 `import` `Vue` 组件 - 通常用于导入 `element-plus` 等公共组件库的组件 - 默认配置 `element-plus`
   - `vite-plugin-style-import` 全局自动引入 `import` 样式文件 - 通常用于导入 `element-plus` 等公共组件库的样式文件
-    > 注意 `v2.0.0` 版本存在 `bug` ，不要 `install` 最新版本。
+    > 注意 `v2.0.0` 版本存在 `bug` ，不要手动 `install` 最新版本。
 
   > `unplugin-auto-import` 和 `unplugin-vue-components` 会分别生成 `auto-imports.d.ts` 和 `components.d.ts` 声明文件，由于这两个声明文件会在开发阶段反复生成，容易产生`git`垃圾，因此他们被置入`.gitignore`中。然而缺少声明文件，有可能会导致无法`build`，因此在`build`之前，应当首先生成好完整的声明文件。
   > 如果需要在服务器`build`，则一个合适的解决办法是在`master`和`release`分支上，删除`.gitignore`中忽略的两个声明文件，这一行为最好用脚本来实现。
 
 - `sass` css 样式语言
 
-- `rollup-plugin-visualizer` 打包的时候生成各模块的可视化占用配比。
+- `rollup-plugin-visualizer` 打包的时候生成各模块的可视化占用比例。
 
 - `vite-plugin-svg-icons` - 引入 `svg` 原生图标 - 已配置，搭配 `SvgIcon` 组件使用
 
@@ -64,7 +64,13 @@
 
 ### 为什么不用`store`(`vue-store`或`pinia`)？
 
-`vue3`允许在外部`ts`文件中使用`ref`和`reactive`，可以直接使用`ref`在`ts`中定义全局变量然后再在`vue`或`ts`文件中引用，并保留响应式，不需要画蛇添足添加`pinia`。
+`vue3`允许在外部`ts`文件中使用`ref`和`reactive`，可以直接使用`ref`在`ts`中，在保留变量响应式的前提下，定义全局变量然后在`vue`或`ts`文件中引用，不需要画蛇添足添加全局状态管理器。
+
+### 为什么要单独设立`service`而不是在`vue`文件中直接写逻辑
+
+1. 解耦合
+2. 可复用
+3. 缓存
 
 ## 开发约束
 

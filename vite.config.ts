@@ -84,8 +84,8 @@ export default defineConfig({
     proxy: {
       // 请求 "/api" 时，转为对 http://localhost:8080/ 发出请求，同时删除 /api 前缀
       // 所有配置可以在"src/config/project.ts"中进行修改
-      [process.env.VITE_BASE_API_URL]: {
-        target: process.env.VITE_BASE_API_URL_PREFIX,
+      [process.env.VITE_BASE_API_URL as string]: {
+        target: process.env.VITE_BASE_API_URL_PREFIX as string,
         changeOrigin: true,
         rewrite: (path) =>
           path.replace(RegExp("^" + process.env.VITE_BASE_API_URL), ""),

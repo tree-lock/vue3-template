@@ -1,6 +1,6 @@
 /** 使用mock模拟数据 */
 import Mock, { mock, Random } from "mockjs";
-const mockUrl = config.baseUrl;
+const mockUrl = import.meta.env.VITE_BASE_API_URL;
 Mock.setup({
   timeout: "200-600",
 });

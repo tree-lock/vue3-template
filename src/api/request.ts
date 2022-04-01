@@ -2,7 +2,7 @@ import axios, { AxiosError } from "axios";
 import Cookies from "js-cookie";
 // 创建Axios标准实例，由于默认后端采用JWT鉴权，所以设置请求头Authorization，请根据鉴权方式自定义
 const axiosInstance = axios.create({
-  baseURL: config.baseUrl,
+  baseURL: import.meta.env.VITE_BASE_API_URL as string,
   withCredentials: false,
   headers: {
     Authorization: `Bearer ${Cookies.get("hhf-token")}`,

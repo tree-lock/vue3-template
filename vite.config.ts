@@ -1,3 +1,4 @@
+import "dotenv/config";
 import { defineConfig, Plugin } from "vite";
 import vue from "@vitejs/plugin-vue";
 import { resolve, join } from "path";
@@ -7,7 +8,6 @@ import Components from "unplugin-vue-components/vite";
 import { ElementPlusResolver } from "unplugin-vue-components/resolvers";
 import { createSvgIconsPlugin } from "vite-plugin-svg-icons";
 import styleImport, { ElementPlusResolve } from "vite-plugin-style-import";
-import config from "./src/config/project";
 /** 在非预发布(release)环境下，开启模块可视化打包
  * 1. npm run build 会生成一个html文件
  * 2. 会自动打开这个html文件，显示打包中各个模块所占的空间 */
@@ -47,7 +47,6 @@ export default defineConfig({
           // 全局引入"src/api/index.ts"的`default`导出，注册为全局变量`api`
           // 相当于在每个ts/vue文件中执行了一次 `import api from "@/api/index"`;
           "@/api/index": [["default", "api"]],
-          "@/store/index": [["default", "store"]],
           "@/config/index": [["default", "config"]],
           "@/service/index": [["default", "$"]],
         },
@@ -85,10 +84,11 @@ export default defineConfig({
     proxy: {
       // 请求 "/api" 时，转为对 http://localhost:8080/ 发出请求，同时删除 /api 前缀
       // 所有配置可以在"src/config/project.ts"中进行修改
-      [config.baseUrl]: {
-        target: config.baseUrlPrefix,
+      [process.env.VITE_BASE_API_URL]: {
+        target: process.env.VITE_BASE_API_URL_PREFIX,
         changeOrigin: true,
-        rewrite: (path) => path.replace(RegExp("^" + config.baseUrl), ""),
+        rewrite: (path) =>
+          path.replace(RegExp("^" + process.env.VITE_BASE_API_URL), ""),
       },
       // 请求 "/bing" 时，转为对 https://cn.bing.com/ 发出请求，同时删除 /bing 前缀
       // 这一配置是外部不变的，所以不读取配置
@@ -108,5 +108,8 @@ export default defineConfig({
         drop_debugger: true,
       },
     },
+  },
+  define: {
+    "process.env": {},
   },
 });

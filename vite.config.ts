@@ -8,7 +8,6 @@ import Components from "unplugin-vue-components/vite";
 import { ElementPlusResolver } from "unplugin-vue-components/resolvers";
 import { createSvgIconsPlugin } from "vite-plugin-svg-icons";
 import styleImport, { ElementPlusResolve } from "vite-plugin-style-import";
-
 /** 在非预发布(release)环境下，开启模块可视化打包
  * 1. npm run build 会生成一个html文件
  * 2. 会自动打开这个html文件，显示打包中各个模块所占的空间 */

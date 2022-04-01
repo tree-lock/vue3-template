@@ -14,7 +14,7 @@ const saveToken = (token: string) => {
  */
 const clearToken = () => {
   Cookies.remove("hhf-token");
-  location.href = "/login";
+  location.href = import.meta.env.BASE_URL + "login";
 };
 export const logout = clearToken;
 /**

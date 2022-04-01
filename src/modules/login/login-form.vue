@@ -52,7 +52,8 @@ const rules = reactive({
 const submit = async () => {
   try {
     await $.auth.login(form);
-    location.href = "/";
+    // 因为要设置github页面，所以需要添加后缀，实际开发时不需要
+    location.href = import.meta.env.BASE_URL;
   } catch (err) {
     const axiosError = err as AxiosResponse;
     if (axiosError.status === 401) {

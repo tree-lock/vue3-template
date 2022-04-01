@@ -11,14 +11,19 @@
 import axios from "axios";
 import LoginForm from "./login-form.vue";
 // 请求bing获取每日背景图片
-const imgReq = axios.get(
-  "bing/HPImageArchive.aspx?format=js&idx=0&n=1&mkt=zh-CN"
-);
+const imgReq = axios
+  .get("bing/HPImageArchive.aspx?format=js&idx=0&n=1&mkt=zh-CN")
+  .then((res) => {
+    return "url(" + "https://cn.bing.com" + res.data.images[0].url + ")";
+  })
+  .catch(() => {
+    console.log("failed");
+    return "url(https://w.wallhaven.cc/full/72/wallhaven-72rxqo.jpg)";
+  });
 const imgUrl = ref<string>("");
 
 onBeforeMount(async () => {
-  imgUrl.value =
-    "url(" + "https://cn.bing.com" + (await imgReq).data.images[0].url + ")";
+  imgUrl.value = await imgReq;
 });
 </script>
 
@@ -31,6 +36,7 @@ div.login-page {
     background: v-bind(imgUrl);
     background-position: center;
     background-repeat: no-repeat;
+    // background-size: contain;
   }
 
   .glass {

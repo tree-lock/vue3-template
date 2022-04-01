@@ -12,6 +12,7 @@ const darkColor = {
   $level1Color: "#d36230",
   $ignoreColor: "#70757a",
   $clickBgColor: "#343434",
+  $selectionBgColor: "#1e4273",
 };
 // 常规模式下的颜色
 const normalColor = {
@@ -25,6 +26,7 @@ const normalColor = {
   $level1Color: "#ff6723",
   $ignoreColor: "#70757a",
   $clickBgColor: "#d9ecff",
+  $selectionBgColor: "#328ffe",
 };
 
 export default darkMode ? darkColor : normalColor;

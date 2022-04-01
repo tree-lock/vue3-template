@@ -10,6 +10,7 @@ const props = defineProps({
     type: String,
     default: "icon",
   },
+  // 通常只传name和size就好了
   name: {
     type: String,
     required: true,

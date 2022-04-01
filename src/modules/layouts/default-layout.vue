@@ -1,5 +1,5 @@
 <template>
-  <div class="layout">
+  <div class="layout" :data-color-mode="darkMode">
     <el-container class="outer-container">
       <el-header><Header /></el-header>
       <el-container>
@@ -23,19 +23,25 @@
 import { RouterView } from "vue-router";
 import Menu from "./layout-menu.vue";
 import Header from "./layout-header.vue";
+const darkMode = $.dark.mode ? "dark" : "light";
 const asideWidth = $.collapse.asideWidth;
 const headerBgColor = config.color.$headerBgColor;
 const asideBgColor = config.color.$asideBgColor;
 const mainBgColor = config.color.$mainBgColor;
 const textColor = config.color.$textColor;
 const borderColor = config.color.$borderColor;
+const selectionBgColor = config.color.$selectionBgColor;
 </script>
 
 <style lang="scss" scoped>
+[data-color-mode="dark"] {
+  color-scheme: dark;
+}
 div.layout {
   height: 100%;
   background-color: #333333;
   color: v-bind(textColor);
+
   > .outer-container {
     height: 100%;
     > .el-header {
@@ -54,6 +60,13 @@ div.layout {
         min-width: 700px;
       }
     }
+  }
+}
+</style>
+<style lang="scss">
+[data-color-mode="dark"] {
+  *::selection {
+    background: v-bind(selectionBgColor);
   }
 }
 </style>

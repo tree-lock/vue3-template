@@ -27,8 +27,8 @@
   - `vite-plugin-style-import` 全局自动引入 `import` 样式文件 - 通常用于导入 `element-plus` 等公共组件库的样式文件
     > 注意 `v2.0.0` 版本存在 `bug` ，不要手动 `install` 最新版本。
 
-  > `unplugin-auto-import` 和 `unplugin-vue-components` 会分别生成 `auto-imports.d.ts` 和 `components.d.ts` 声明文件，由于这两个声明文件会在开发阶段反复生成，容易产生`git`垃圾，因此他们被置入`.gitignore`中。然而缺少声明文件，有可能会导致无法`build`，因此在`build`之前，应当首先生成好完整的声明文件。
-  > 如果需要在服务器`build`，则一个合适的解决办法是在`master`和`release`分支上，删除`.gitignore`中忽略的两个声明文件，这一行为最好用脚本来实现。
+  > `unplugin-auto-import` 和 `unplugin-vue-components` 会分别生成 `auto-imports.d.ts` 和 `components.d.ts` 声明文件，由于这两个声明文件会在开发阶段反复生成，容易产生`git`垃圾，因此可以将他们置入到`.gitignore`中。但这种方式会导致缺少声明文件，而无法正常`vite build`，因此在`build`之前，应当首先生成好完整的声明文件。
+  > 一个合适的解决办法是在`master`和`release`分支上，删除`.gitignore`中忽略的两个声明文件，这一行为最好用脚本来实现。
 
 - `sass` css 样式语言
 

@@ -14,7 +14,6 @@ interface ImportMeta {
 interface ImportMetaEnv {
   readonly VITE_BASE_API_URL: string;
   readonly VITE_BASE_API_URL_PREFIX: string;
-  readonly VITE_BASE_LOCAL_URL: string;
   readonly VITE_BASE: string;
   // 更多环境变量...
 }

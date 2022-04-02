@@ -1,1 +1,0 @@
-import{_ as e,k as s,$ as a,o,p,B as r,s as l}from"./index.2c4dd4d8.js";const t={class:"profile-page"};var d=e(s({setup(e){const s=a.profile.default;return(e,a)=>(o(),p("div",t,r(l(s)),1))}}),[["__file","/home/xmo/code/vue3-template/src/modules/profile/profile.page.vue"]]);export{d as default};

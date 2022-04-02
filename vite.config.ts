@@ -1,4 +1,4 @@
-import { defineConfig, Plugin } from "vite";
+import { defineConfig } from "vite";
 import vue from "@vitejs/plugin-vue";
 import { resolve, join } from "path";
 import visualizer from "rollup-plugin-visualizer";
@@ -7,6 +7,7 @@ import Components from "unplugin-vue-components/vite";
 import { ElementPlusResolver } from "unplugin-vue-components/resolvers";
 import { createSvgIconsPlugin } from "vite-plugin-svg-icons";
 import styleImport, { ElementPlusResolve } from "vite-plugin-style-import";
+// import "dotenv/config";
 
 // https://vitejs.dev/config/
 export default defineConfig(({ mode }) => ({
@@ -76,6 +77,7 @@ export default defineConfig(({ mode }) => ({
     proxy: {
       // 请求 "/api" 时，转为对 http://localhost:8080/ 发出请求，同时删除 /api 前缀
       // 所有配置可以在"src/config/project.ts"中进行修改
+      // 只在开发模式有效，打包之后需要在Nginx中配置路由转发
       [process.env.VITE_BASE_API_URL as string]: {
         target: process.env.VITE_BASE_API_URL_PREFIX as string,
         changeOrigin: true,

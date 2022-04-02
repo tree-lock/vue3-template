@@ -1,1 +1,0 @@
-import{_ as e,o as a,p as m}from"./index.05cc343b.js";const n={class:"company-management-page"};var o=e({},[["render",function(e,o){return a(),m("div",n,"公司管理页")}],["__file","/home/xmo/code/vue3-template/src/modules/company-management/company-management.page.vue"]]);export{o as default};

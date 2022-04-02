@@ -1,7 +1,7 @@
 <template>
   <div class="login-form">
     <h1>账号登录</h1>
-    <el-form :rules="rules" :model="form">
+    <el-form ref="formRef" :rules="rules" :model="form">
       <el-form-item prop="username">
         <el-input
           v-model="form.username"
@@ -41,6 +41,8 @@
 <script lang="ts" setup>
 import { Avatar, Lock } from "@element-plus/icons-vue";
 import { AxiosResponse } from "axios";
+import { FormInstance } from "element-plus/es";
+const formRef = ref<FormInstance>();
 const form = reactive({
   username: "",
   password: "",
@@ -50,14 +52,20 @@ const rules = reactive({
   password: [{ required: true, trigger: "blur", message: "请输入密码" }],
 });
 const submit = async () => {
-  try {
-    await $.auth.login(form);
-    // 因为要设置github页面，所以需要添加后缀，实际开发时不需要
-    location.href = import.meta.env.BASE_URL;
-  } catch (err) {
-    const axiosError = err as AxiosResponse;
-    if (axiosError.status === 401) {
-      ElNotification.warning("用户名或密码错误");
+  let ifValid = false;
+  await (formRef.value as FormInstance).validate(
+    (valid: boolean) => (ifValid = valid)
+  );
+  if (ifValid) {
+    try {
+      await $.auth.login(form);
+      // 因为要设置github页面，所以需要添加后缀，实际开发时不需要
+      location.href = import.meta.env.BASE_URL;
+    } catch (err) {
+      const axiosError = err as AxiosResponse;
+      if (axiosError.status === 401) {
+        ElNotification.warning("用户名或密码错误");
+      }
     }
   }
 };

@@ -1,0 +1,1 @@
+import{_ as t,o as e,p as s}from"./index.d415008f.js";const a={class:"statistic-page"};var i=t({},[["render",function(t,i){return e(),s("div",a,"统计页")}],["__file","/home/xmo/code/vue3-template/src/modules/statistic/statistic.page.vue"]]);export{i as default};

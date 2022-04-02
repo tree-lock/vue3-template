@@ -7,7 +7,7 @@ import Components from "unplugin-vue-components/vite";
 import { ElementPlusResolver } from "unplugin-vue-components/resolvers";
 import { createSvgIconsPlugin } from "vite-plugin-svg-icons";
 import styleImport, { ElementPlusResolve } from "vite-plugin-style-import";
-// import "dotenv/config";
+import "dotenv/config";
 
 // https://vitejs.dev/config/
 export default defineConfig(({ mode }) => ({
@@ -81,8 +81,10 @@ export default defineConfig(({ mode }) => ({
       [process.env.VITE_BASE_API_URL as string]: {
         target: process.env.VITE_BASE_API_URL_PREFIX as string,
         changeOrigin: true,
-        rewrite: (path) =>
-          path.replace(RegExp("^" + process.env.VITE_BASE_API_URL), ""),
+        rewrite: (path) => {
+          console.log(process.env.VITE_BASE_API_URL);
+          return path.replace(RegExp("^" + process.env.VITE_BASE_API_URL), "");
+        },
       },
       // 请求 "/bing" 时，转为对 https://cn.bing.com/ 发出请求，同时删除 /bing 前缀
       // 这一配置是外部不变的，所以不读取配置

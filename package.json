@@ -5,7 +5,7 @@
   "scripts": {
     "dev": "vite",
     "build": "vue-tsc --noEmit && vite build",
-    "build:template": "vue-tsc --noEmit && vite build --outDir docs --mode template",
+    "build:template": "vue-tsc --noEmit && vite build --outDir docs --mode template && cp docs/index.html docs/404.html",
     "preview": "vite preview",
     "commit": "git add . && git status && git-cz && git push",
     "prepare": "husky install"

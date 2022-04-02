@@ -36,6 +36,8 @@
 
 - `vite-plugin-svg-icons` - 引入 `svg` 原生图标 - 已配置，搭配 `SvgIcon` 组件使用
 
+_`@types/lodash-es`和`rollup`这两个库事件上不需要安装，只不过不安装会提示`peerDependencies`错误，实际用不上_
+
 ### 质量管理
 
 - `husky` 劫持 `git` 事件，用于在 `git` 的各个阶段进行行为检测

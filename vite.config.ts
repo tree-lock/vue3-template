@@ -105,5 +105,6 @@ export default defineConfig(({ mode }) => ({
       },
     },
   },
+  // TODO: 用于生成github.io页面，正式开发请删除本行
   base: mode === "template" ? "/vue3-template/" : "/",
 }));

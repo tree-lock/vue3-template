@@ -1,7 +1,7 @@
 {
-  "name": "hhf1-frontend",
-  "private": true,
-  "version": "0.0.0",
+  "name": "xmo-vue3-template",
+  "license": "MIT",
+  "version": "1.0.0",
   "scripts": {
     "dev": "vite",
     "build": "vue-tsc --noEmit && vite build",

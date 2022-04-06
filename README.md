@@ -2,6 +2,8 @@
 
 该模板提供了 Vue3+Vite+Typescript 的模块化开发的基础框架，Vue 文件使用`<script setup>`SFCs 语法。
 
+[gitee 地址](https://gitee.com/dXmo/vue3-template)
+
 **_！先运行项目，打开网页！_**
 
 > 请先`npm install`(或任何其它包管理工具)并`npm run dev`然后打开一次网页(通常是`localhost:3000`)以自动生成所有的`ts`声明文件；
@@ -9,6 +11,13 @@
 > 第一次加载可能会需要一点时间；
 
 > 模块缺少的类型，开发模式下打开对应模块的页面之后会加载出来；
+
+## 安装教程
+
+```bash
+npm install degit -g
+degit github:darkXmo/vue3-template vue3-template
+```
 
 ## 推荐的 IDE
 

@@ -2,8 +2,13 @@
 
 该模板提供了 Vue3+Vite+Typescript 的模块化开发的基础框架，Vue 文件使用`<script setup>`SFCs 语法。
 
-> 请先`npm install`(或任何其它包管理工具)并`npm run dev`然后打开一次网页(通常是`localhost:3000`)以自动生成所有的`ts`声明文件。
-> 第一次加载可能会需要一点时间。
+**_！先运行项目，打开网页！_**
+
+> 请先`npm install`(或任何其它包管理工具)并`npm run dev`然后打开一次网页(通常是`localhost:3000`)以自动生成所有的`ts`声明文件；
+
+> 第一次加载可能会需要一点时间；
+
+> 模块如果缺少类型，打开对应模块的页面之后就会加载出来；
 
 ## 推荐的 IDE
 
@@ -18,7 +23,7 @@
 
 - `vue-router` Vue 页面路由
 
-- `element-plus` 默认外部公共组件库，可自由替换成其它例如 `ant-design-vue` 的组件库
+- `element-plus` 默认外部公共组件库，可手动替换成其它例如 `ant-design-vue` 的组件库
 
 - `Vite` 自动引入 - 使用详情可参照[本文](https://juejin.cn/post/7012446423367024676)
 

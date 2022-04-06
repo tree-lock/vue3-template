@@ -16,7 +16,9 @@
     </div>
     <div class="version">
       版本: v{{ version }}
-      <a href="https://gitee.com/dXmo" target="_blank">Authored by Xmo</a>
+      <a href="https://github.com/darkXmo/vue3-template" target="_blank"
+        >Authored by Xmo</a
+      >
       <svg-icon name="favicon" size="16px" />
     </div>
   </div>

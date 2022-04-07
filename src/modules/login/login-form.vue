@@ -64,6 +64,7 @@ const submit = async () => {
     } catch (err) {
       const axiosError = err as AxiosResponse;
       if (axiosError.status === 401) {
+        // 点开登录页面，`auto-imports.d.ts`会自动加载ElNotification的类型，不要主动`import`它；
         ElNotification.warning("用户名或密码错误");
       }
     }

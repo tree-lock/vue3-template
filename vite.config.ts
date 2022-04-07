@@ -6,7 +6,6 @@ import AutoImport from "unplugin-auto-import/vite";
 import Components from "unplugin-vue-components/vite";
 import { ElementPlusResolver } from "unplugin-vue-components/resolvers";
 import { createSvgIconsPlugin } from "vite-plugin-svg-icons";
-import styleImport, { ElementPlusResolve } from "vite-plugin-style-import";
 import "dotenv/config";
 
 // https://vitejs.dev/config/
@@ -59,10 +58,6 @@ export default defineConfig(({ mode }) => ({
       extensions: ["vue", "ts"],
       deep: false,
       dts: "src/components.d.ts",
-    }),
-    // 全局自动引入了 Element-Plus 的被使用到的样式文件
-    styleImport({
-      resolves: [ElementPlusResolve()],
     }),
   ],
   resolve: {

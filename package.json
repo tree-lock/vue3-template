@@ -7,7 +7,7 @@
     "build": "vue-tsc --noEmit && vite build",
     "build:template": "vue-tsc --noEmit && vite build --outDir docs --mode template && cp docs/index.html docs/404.html",
     "preview": "vite preview",
-    "commit": "git add . && git status && git-cz && git push",
+    "commit": "git add . && git status && git-cz",
     "prepare": "husky install"
   },
   "dependencies": {
@@ -29,7 +29,6 @@
     "unplugin-auto-import": "^0.6.1",
     "unplugin-vue-components": "^0.17.21",
     "vite": "^2.8.0",
-    "vite-plugin-style-import": "^1.4.1",
     "vite-plugin-svg-icons": "^2.0.1",
     "vue": "^3.2.25",
     "vue-router": "^4.0.13",

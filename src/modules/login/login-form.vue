@@ -18,6 +18,7 @@
           v-model="form.password"
           placeholder="密码(mock状态下请随意输入)"
           autocomplete="password"
+          @keyup.enter="submit"
           type="password"
         >
           <template #prepend
@@ -59,12 +60,12 @@ const submit = async () => {
   if (ifValid) {
     try {
       await $.auth.login(form);
-      // 因为要设置github页面，所以需要添加后缀，实际开发时不需要
+      // 因为项目要部署在github.io，所以根据环境变量动态判断前缀。
+      // 实际开发写成定值即可
       location.href = import.meta.env.BASE_URL;
     } catch (err) {
       const axiosError = err as AxiosResponse;
       if (axiosError.status === 401) {
-        // 点开登录页面，`auto-imports.d.ts`会自动加载ElNotification的类型，不要主动`import`它；
         ElNotification.warning("用户名或密码错误");
       }
     }

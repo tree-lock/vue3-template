@@ -4,9 +4,9 @@
 
 [gitee 地址](https://gitee.com/dXmo/vue3-template)
 
-**_！先运行项目，打开网页！_**
+**_！先运行项目开发模式！_**
 
-> 请先`npm install`(或任何其它包管理工具)并`npm run dev`然后打开一次网页(通常是`localhost:3000`)以自动生成所有的`ts`声明文件；
+> 请先`npm install`(或任何其它包管理工具)并`npm run dev`以自动生成所有的`ts`声明文件；
 
 > 第一次加载可能会需要一点时间；
 
@@ -38,11 +38,8 @@ degit github:darkXmo/vue3-template vue3-template
 
   - `unplugin-auto-import` 全局自动隐式 `import` 导出 - 通常用于导入 `vue` `vue-router` 的导出 - 已配置
   - `unplugin-vue-components` 全局自动隐式 `import` `Vue` 组件 - 通常用于导入 `element-plus` 等公共组件库的组件 - 默认配置 `element-plus`
-  - `vite-plugin-style-import` 全局自动引入 `import` 样式文件 - 通常用于导入 `element-plus` 等公共组件库的样式文件
-    > 注意 `v2.0.0` 版本存在 `bug` ，不要手动 `install` 最新版本。
 
-  > `unplugin-auto-import` 和 `unplugin-vue-components` 会分别生成 `auto-imports.d.ts` 和 `components.d.ts` 声明文件，由于这两个声明文件会在开发阶段反复生成，容易产生`git`垃圾，因此可以将他们置入到`.gitignore`中。但这种方式会导致缺少声明文件，而无法正常`vite build`，因此在`build`之前，应当首先生成好完整的声明文件。
-  > 一个合适的解决办法是在`master`和`release`分支上，删除`.gitignore`中忽略的两个声明文件，这一行为最好用脚本来实现。
+  > `unplugin-auto-import` 和 `unplugin-vue-components` 会分别生成 `auto-imports.d.ts` 和 `components.d.ts` 声明文件。
 
 - `sass` css 样式语言
 

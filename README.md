@@ -17,6 +17,9 @@
 ```bash
 npm install degit -g
 degit github:darkXmo/vue3-template vue3-template
+
+cd vue3-template
+npm install
 ```
 
 ## 推荐的 IDE

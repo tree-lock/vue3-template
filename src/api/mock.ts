@@ -6,7 +6,7 @@ Mock.setup({
   timeout: "200-600",
 });
 export const isMock = ref<boolean>(false);
-export const startMock = () => {
+const startMock = () => {
   isMock.value = true;
   mock(mockUrl + "/auth/login", "post", (): Auth.Response.Login => {
     return {
@@ -26,3 +26,5 @@ export const startMock = () => {
     };
   });
 };
+
+startMock();

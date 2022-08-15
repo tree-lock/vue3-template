@@ -90,16 +90,6 @@ export default defineConfig(({ mode }) => ({
       },
     },
   },
-  build: {
-    minify: "terser",
-    terserOptions: {
-      compress: {
-        //生产环境时移除console
-        drop_console: true,
-        drop_debugger: true,
-      },
-    },
-  },
   // TODO: 用于生成github.io页面，正式开发请删除本行
   base: mode === "template" ? "/vue3-template/" : "/",
 }));

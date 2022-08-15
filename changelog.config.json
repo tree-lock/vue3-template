@@ -1,0 +1,26 @@
+{
+  "disableEmoji": false,
+  "format": "{type}{scope}: {emoji}{subject}",
+  "list": ["feat", "fix", "chore", "docs", "style", "refactor"],
+  "maxMessageLength": 64,
+  "minMessageLength": 3,
+  "questions": ["type", "scope", "subject", "body"],
+  "scopes": ["framework-主架构", "configuration-配置文件", "others-其它"],
+  "types": {
+    "feat": { "description": "添加或修改功能", "emoji": "🎸", "value": "feat" },
+    "chore": {
+      "emoji": "🤖",
+      "description": "配置或依赖修改",
+      "value": "chore"
+    },
+    "fix": { "description": "错误修正", "emoji": "🐛", "value": "fix" },
+    "docs": { "description": "文档修改", "emoji": "✏️", "value": "docs" },
+    "style": { "description": "代码结构优化", "emoji": "💄", "value": "style" },
+    "refactor": {
+      "description": "项目重构",
+      "emoji": "💡",
+      "value": "refactor"
+    },
+    "test": { "description": "添加测试", "emoji": "💍", "value": "test" }
+  }
+}

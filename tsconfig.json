@@ -12,8 +12,8 @@
     "esModuleInterop": true,
     "skipLibCheck": true,
     "lib": ["esnext", "dom"],
-    "baseUrl": "src",
     "types": ["vite/client", "element-plus/global"],
+    "baseUrl": "src",
     "paths": {
       "@/*": ["./*"]
     }

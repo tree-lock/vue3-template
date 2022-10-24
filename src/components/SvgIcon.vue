@@ -1,43 +1,32 @@
 <script setup lang="ts">
-import { computed } from "vue";
 /** 前缀(基本用不上)
  * 图标名(图标需放在public/svg文件夹,名称不包括后缀名，不能使用包含'-'分隔符)
  * 颜色
  * 高度
  * 宽度*/
-const props = defineProps({
-  prefix: {
-    type: String,
-    default: "icon",
-  },
-  // 通常只传name和size就好了
-  name: {
-    type: String,
-    required: true,
-  },
-  color: {
-    type: String,
-  },
-  height: {
-    type: String,
-  },
-  width: {
-    type: String,
-  },
-  size: {
-    type: String,
-  },
-});
+const props = defineProps<{
+  name: string;
+  prefix?: string;
+  color?: string;
+  height?: number;
+  width?: number;
+  size?: number;
+}>();
 const svgColor = toRef(props, "color");
-const symbolId = computed(() => `#${props.prefix}-${props.name}`);
-const width = props.width ?? props.size;
-const height = props.height ?? props.size;
+const symbolId = computed(() => `#${props.prefix ?? "icon"}-${props.name}`);
+const width = (props.width ?? props.size ?? 24) + "px";
+const height = (props.height ?? props.size ?? 24) + "px";
 </script>
 
 <template>
-  <svg aria-hidden="true" :width="width" :height="height">
+  <svg aria-hidden="true" :class="symbolId">
     <use :href="symbolId" :fill="svgColor" />
   </svg>
 </template>
 
-<style scoped lang="less"></style>
+<style scoped lang="less">
+svg {
+  width: v-bind(width);
+  height: v-bind(height);
+}
+</style>

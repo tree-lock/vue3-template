@@ -1,0 +1,6 @@
+src/assets/*
+src/auto-imports.d.ts
+src/components.d.ts
+/*.js
+/*.cjs
+index.html

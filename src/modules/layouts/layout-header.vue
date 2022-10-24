@@ -6,7 +6,7 @@
         <span>{{ name }}</span>
         🪶
       </div>
-      <el-button @click="logout" type="primary">登出</el-button>
+      <el-button type="primary" @click="logout">登出</el-button>
       <el-button @click="changeMode">
         {{ mode ? "常规配色" : "暗黑配色" }}
       </el-button>

@@ -4,7 +4,7 @@
  * @param delay 节流的时长
  * @returns 包装之后的函数
  */
-export function throttle(fn: Function, delay: number) {
+export function throttle(fn: () => unknown, delay: number) {
   let valid = true;
   return function () {
     if (!valid) {

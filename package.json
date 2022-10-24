@@ -10,6 +10,7 @@
     "build:release": "vue-tsc --noEmit && vite build --mode release",
     "build:template": "vue-tsc --noEmit && vite build --outDir docs --mode template && cp docs/index.html docs/404.html",
     "preview": "vite preview",
+    "lint": "eslint src --ext .ts --ext .vue --fix",
     "commit": "git add . && git status && git-cz",
     "prepare": "husky install"
   },
@@ -39,27 +40,23 @@
   "devDependencies": {
     "@commitlint/cli": "^17.1.2",
     "@commitlint/config-conventional": "^17.1.0",
+    "@typescript-eslint/eslint-plugin": "^5.40.1",
+    "@typescript-eslint/parser": "^5.40.1",
     "cz-conventional-changelog": "^3.3.0",
+    "eslint": "^8.26.0",
+    "eslint-config-prettier": "^8.5.0",
+    "eslint-plugin-prettier": "^4.2.1",
+    "eslint-plugin-vue": "^9.6.0",
     "git-cz": "^4.9.0",
     "husky": "^7.0.4",
     "lint-staged": "^12.5.0",
     "prettier": "2.5.1",
-    "rimraf": "^3.0.2"
+    "rimraf": "^3.0.2",
+    "vue-eslint-parser": "^9.1.0"
   },
   "config": {
     "commitizen": {
       "path": "./node_modules/cz-conventional-changelog"
     }
-  },
-  "lint-staged": {
-    "src/**/*.vue": [
-      "prettier --write --ignore-unknown"
-    ],
-    "src/**/*.js": [
-      "prettier --write --ignore-unknown"
-    ],
-    "src/**/*.ts": [
-      "prettier --write --ignore-unknown"
-    ]
   }
 }

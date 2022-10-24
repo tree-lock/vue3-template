@@ -72,15 +72,9 @@ _`@types/lodash-es`和`rollup`这两个库事件上不需要安装，只不过�
 
 可以在 `src/index.ts` 中开启或关闭 `mock` 模拟 `XHR` / `Axios` 请求;
 
-### 项目打开 `ref`/`reactive` 等`vue`/`vue-router`变量爆红 | 生成完整的 `auto-imports.d.ts` 和 `components.d.ts`
-
-1. 先进入项目开发模式 `npm run dev`
-2. 再点击打开网页 `http://localhost:3000`
-3. `vite` 会自动在 `src` 文件夹中生成`auto-imports.d.ts` 和 `components.d.ts`这两个文件
-
 ### 为什么不用`store`(`vue-store`或`pinia`)？
 
-`vue3`允许在外部`ts`文件中使用`ref`和`reactive`，可以直接使用`ref`在`ts`中，在保留变量响应式的前提下，定义全局变量然后在`vue`或`ts`文件中引用，不需要画蛇添足添加全局状态管理器。
+`vue3`允许在外部`ts`文件中使用`ref`和`reactive`，可以直接使用`ref`在`ts`中，在保留变量响应式的前提下，定义全局变量然后在`vue`或`ts`文件中引用，大多数情况不需要画蛇添足添加全局状态管理器。
 
 ### 为什么要单独设立`service`而不是在`vue`文件中直接写逻辑
 

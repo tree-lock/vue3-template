@@ -18,8 +18,8 @@
           v-model="form.password"
           placeholder="密码(mock状态下请随意输入)"
           autocomplete="password"
-          @keyup.enter="submit"
           type="password"
+          @keyup.enter="submit"
         >
           <template #prepend
             ><el-icon><lock /></el-icon
@@ -42,7 +42,7 @@
 <script lang="ts" setup>
 import { Avatar, Lock } from "@element-plus/icons-vue";
 import { AxiosResponse } from "axios";
-import { FormInstance } from "element-plus/es";
+import { ElNotification, FormInstance } from "element-plus";
 const formRef = ref<FormInstance>();
 const form = reactive({
   username: "",

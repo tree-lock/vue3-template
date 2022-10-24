@@ -24,7 +24,7 @@
       <span>日志系统</span>
     </el-menu-item>
     <div class="operation">
-      <el-icon @click="changeCollapse" :color="ignoreColor" size="2rem"
+      <el-icon :color="ignoreColor" size="2rem" @click="changeCollapse"
         ><expand v-if="isCollapse" /><fold v-else
       /></el-icon>
     </div>

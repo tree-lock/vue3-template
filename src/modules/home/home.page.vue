@@ -6,11 +6,15 @@
       </div>
       <div class="date">{{ date }}</div>
       <div class="menu">
-        <div v-for="item in menu" @click="goMenuItem(item.name)">
+        <div
+          v-for="item in menu"
+          :key="item.name"
+          @click="goMenuItem(item.name)"
+        >
           {{ item.str }}
         </div>
       </div>
-      <div class="recommend" v-loading="recommended === 'Loading'">
+      <div v-loading="recommended === 'Loading'" class="recommend">
         {{ recommended }}
       </div>
     </div>
@@ -19,7 +23,7 @@
       <a href="https://github.com/darkXmo/vue3-template" target="_blank"
         >Authored by Xmo</a
       >
-      <svg-icon name="favicon" size="16px" />
+      <svg-icon name="favicon" :size="16" />
     </div>
   </div>
 </template>
@@ -42,7 +46,7 @@ const helloWord = () => {
 
 const version = config.version;
 const date = ref<string>();
-let interval: NodeJS.Timer;
+let interval: ReturnType<typeof setTimeout>;
 /**
  * 生成当前时间(精确到分钟)
  */

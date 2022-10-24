@@ -28,7 +28,7 @@ specifiers:
   lint-staged: ^12.5.0
   mockjs: ^1.1.0
   once-init: ^1.0.0
-  prettier: 2.5.1
+  prettier: ^2.7.1
   rimraf: ^3.0.2
   rollup-plugin-visualizer: ^5.8.3
   typescript: ^4.8.4
@@ -72,7 +72,7 @@ devDependencies:
   cz-conventional-changelog: 3.3.0
   eslint: 8.26.0
   eslint-config-prettier: 8.5.0_eslint@8.26.0
-  eslint-plugin-prettier: 4.2.1_rdlxlchew7a3e2vwpnsgwwxgyi
+  eslint-plugin-prettier: 4.2.1_aniwkeyvlpmwkidetuytnokvcm
   eslint-plugin-vue: 9.6.0_eslint@8.26.0
   fs-extra: 10.1.0
   git-cz: 4.9.0
@@ -80,7 +80,7 @@ devDependencies:
   husky: 7.0.4
   inquirer: 9.1.4
   lint-staged: 12.5.0
-  prettier: 2.5.1
+  prettier: 2.7.1
   rimraf: 3.0.2
   vue-eslint-parser: 9.1.0_eslint@8.26.0
 
@@ -2323,7 +2323,7 @@ packages:
       eslint: 8.26.0
     dev: true
 
-  /eslint-plugin-prettier/4.2.1_rdlxlchew7a3e2vwpnsgwwxgyi:
+  /eslint-plugin-prettier/4.2.1_aniwkeyvlpmwkidetuytnokvcm:
     resolution: {integrity: sha512-f/0rXLXUt0oFYs8ra4w49wYZBG5GKZpAYsJSm6rnYL5uVDjd+zowwMwVZHnAjf4edNrKpCDYfXDgmRE/Ak7QyQ==}
     engines: {node: '>=12.0.0'}
     peerDependencies:
@@ -2336,7 +2336,7 @@ packages:
     dependencies:
       eslint: 8.26.0
       eslint-config-prettier: 8.5.0_eslint@8.26.0
-      prettier: 2.5.1
+      prettier: 2.7.1
       prettier-linter-helpers: 1.0.0
     dev: true
 
@@ -4675,8 +4675,8 @@ packages:
       fast-diff: 1.2.0
     dev: true
 
-  /prettier/2.5.1:
-    resolution: {integrity: sha512-vBZcPRUR5MZJwoyi3ZoyQlc1rXeEck8KgeC9AwwOn+exuxLxq5toTRDTSaVrXHxelDMHy9zlicw8u66yxoSUFg==}
+  /prettier/2.7.1:
+    resolution: {integrity: sha512-ujppO+MkdPqoVINuDFDRLClm7D78qbDt0/NR+wp5FqEZOoTNAjPHWj17QRhu7geIHJfcNhRk1XVQmF8Bp3ye+g==}
     engines: {node: '>=10.13.0'}
     hasBin: true
     dev: true

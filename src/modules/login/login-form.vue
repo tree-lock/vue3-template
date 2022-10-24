@@ -73,7 +73,7 @@ const submit = async () => {
 };
 </script>
 
-<style lang="scss" scoped>
+<style lang="less" scoped>
 div.login-form {
   > h1 {
     font-size: 1.65rem;

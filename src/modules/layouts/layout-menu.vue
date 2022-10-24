@@ -54,7 +54,7 @@ const borderColor = config.color.$borderColor;
 const ignoreColor = config.color.$ignoreColor;
 </script>
 
-<style lang="scss" scoped>
+<style lang="less" scoped>
 .el-menu {
   height: 100%;
   border-color: v-bind(borderColor);

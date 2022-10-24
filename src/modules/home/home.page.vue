@@ -96,7 +96,7 @@ const hoverBgColor = config.color.$hoverBgColor;
 const clickBgColor = config.color.$clickBgColor;
 </script>
 
-<style lang="scss" scoped>
+<style lang="less" scoped>
 div.home-page {
   height: 100%;
   display: flex;

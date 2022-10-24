@@ -36,7 +36,7 @@ const goProfile = () => {
 };
 </script>
 
-<style lang="scss" scoped>
+<style lang="less" scoped>
 div.layout-header {
   display: flex;
   align-items: center;

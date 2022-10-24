@@ -44,7 +44,7 @@ npm install
 
   > `unplugin-auto-import` 和 `unplugin-vue-components` 会分别生成 `auto-imports.d.ts` 和 `components.d.ts` 声明文件。
 
-- `sass` css 样式语言
+- `less` css 样式语言
 
 - `rollup-plugin-visualizer` 打包的时候生成各模块的可视化占用比例。
 

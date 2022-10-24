@@ -33,7 +33,7 @@ const borderColor = config.color.$borderColor;
 const selectionBgColor = config.color.$selectionBgColor;
 </script>
 
-<style lang="scss" scoped>
+<style lang="less" scoped>
 [data-color-mode="dark"] {
   color-scheme: dark;
 }
@@ -63,7 +63,7 @@ div.layout {
   }
 }
 </style>
-<style lang="scss">
+<style lang="less">
 [data-color-mode="dark"] {
   *::selection {
     background: v-bind(selectionBgColor);

@@ -26,7 +26,7 @@ onBeforeMount(async () => {
 });
 </script>
 
-<style lang="scss" scoped>
+<style lang="less" scoped>
 div.login-page {
   height: 100%;
 

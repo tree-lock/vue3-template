@@ -4,7 +4,6 @@ declare global {
   const $: typeof import("@/service/index")["default"];
   const EffectScope: typeof import("vue")["EffectScope"];
   const ElMessage: typeof import("element-plus/es")["ElMessage"];
-  const ElNotification: typeof import("element-plus/es")["ElNotification"];
   const api: typeof import("@/api/index")["default"];
   const computed: typeof import("vue")["computed"];
   const config: typeof import("@/config/index")["default"];

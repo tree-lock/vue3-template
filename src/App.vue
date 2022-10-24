@@ -11,7 +11,7 @@ import zhCn from "element-plus/lib/locale/lang/zh-cn";
   </ElConfigProvider>
 </template>
 
-<style lang="scss">
+<style lang="less">
 #app {
   font-family: -apple-system, BlinkMacSystemFont, Helvetica Neue, PingFang SC,
     Microsoft YaHei, Source Han Sans SC, Noto Sans CJK SC, WenQuanYi Micro Hei,

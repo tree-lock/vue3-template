@@ -40,13 +40,13 @@ axiosInstance.interceptors.response.use(
     return response;
   },
   (error: AxiosError) => {
-    if (error.response?.status === 401 && error.config.url !== "/auth/login") {
+    if (error.response?.status === 401 && error.config?.url !== "/auth/login") {
       // 如果请求不是登录请求并且返回状态码401，则返回登录页面
       // mock状态下无法返回状态码401
       location.href = import.meta.env.BASE_URL + "login";
     } else {
       // 否则弹出请求错误信息
-      ElMessage(error.response?.data.message);
+      ElMessage((error.response?.data as { message: string }).message);
     }
     throw error.response;
   }

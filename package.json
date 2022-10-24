@@ -12,7 +12,9 @@
     "preview": "vite preview",
     "lint": "eslint src --ext .ts --ext .vue --fix",
     "commit": "git add . && git status && git-cz",
-    "prepare": "husky install"
+    "prepare": "husky install",
+    "release": "npm run build && gulp",
+    "version": "gulp customizeVersion"
   },
   "dependencies": {
     "@element-plus/icons-vue": "^2.0.10",
@@ -47,8 +49,11 @@
     "eslint-config-prettier": "^8.5.0",
     "eslint-plugin-prettier": "^4.2.1",
     "eslint-plugin-vue": "^9.6.0",
+    "fs-extra": "^10.1.0",
     "git-cz": "^4.9.0",
+    "gulp": "^4.0.2",
     "husky": "^7.0.4",
+    "inquirer": "^9.1.4",
     "lint-staged": "^12.5.0",
     "prettier": "2.5.1",
     "rimraf": "^3.0.2",

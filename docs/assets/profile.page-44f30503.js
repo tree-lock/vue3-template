@@ -1,0 +1,1 @@
+import{d as o,z as t,F as a,B as s,y as r,$ as n}from"./index-eab9198e.js";const p={class:"profile-page"},_=o({__name:"profile.page",setup(c){const e=n.profile.default;return(i,l)=>(r(),t("div",p,a(s(e)),1))}});export{_ as default};

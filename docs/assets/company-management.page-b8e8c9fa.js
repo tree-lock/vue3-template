@@ -1,0 +1,1 @@
+import{_ as e}from"./_plugin-vue_export-helper-c27b6911.js";import{z as a,y as n}from"./index-eab9198e.js";const c={},o={class:"company-management-page"};function t(r,s){return n(),a("div",o,"公司管理页")}const p=e(c,[["render",t]]);export{p as default};

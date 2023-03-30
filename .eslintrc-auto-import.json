@@ -5,7 +5,6 @@
     "ComponentPublicInstance": true,
     "ComputedRef": true,
     "EffectScope": true,
-    "ElMessage": true,
     "InjectionKey": true,
     "PropType": true,
     "Ref": true,

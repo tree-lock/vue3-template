@@ -1,1 +1,0 @@
-import{_ as e}from"./_plugin-vue_export-helper-c27b6911.js";import{z as o,y as r}from"./index-eab9198e.js";const c={};function t(n,_){return r(),o("div",null,"日志系统页")}const f=e(c,[["render",t]]);export{f as default};

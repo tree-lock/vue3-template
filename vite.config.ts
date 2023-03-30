@@ -86,15 +86,6 @@ export default defineConfig(({ mode }) => ({
           return path.replace(RegExp("^" + process.env.VITE_BASE_API_URL), "");
         },
       },
-      // 请求 "/bing" 时，转为对 https://cn.bing.com/ 发出请求，同时删除 /bing 前缀
-      // 这一配置是外部不变的，所以不读取配置
-      "/bing": {
-        target: "https://cn.bing.com/",
-        changeOrigin: true,
-        rewrite: (path) => path.replace(/^\/bing/, ""),
-      },
     },
   },
-  // TODO: 用于生成github.io页面，正式开发请删除本行
-  base: mode === "template" ? "/vue3-template/" : "/",
 }));
